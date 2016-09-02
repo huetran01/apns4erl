@@ -130,7 +130,8 @@ ssl_opts(Connection) ->
     case Connection#apns_connection.cert_password of
       undefined -> [];
       Password -> [{password, Password}]
-    end,
+    end
+		++  [{versions,['tlsv1.1']}],
   [{mode, binary} | Opts].
 
 %% @hidden
